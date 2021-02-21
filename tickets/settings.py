@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 
     #local
-    'usergui',
-    'devgui'
+    'usergui.apps.UserguiConfig',
+    'devgui.apps.DevguiConfig'
 
 ]
 

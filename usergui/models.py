@@ -1,7 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from devgui.models import *
-
 # Create your models here.
 
 class Client (models.Model):
@@ -25,7 +23,7 @@ class User (models.Model):
 
 class Complaint (models.Model):
     id_user = models.ForeignKey(User, on_delete=models.CASCADE)
-    id_release = models.ForeignKey(Release, on_delete=models.CASCADE)
+    id_release = models.ForeignKey('devgui.Release', on_delete=models.CASCADE)
     creation_timestamp = models.DateTimeField(default=timezone.now)
     type = models.CharField(max_length=50)
     description = models.TextField()

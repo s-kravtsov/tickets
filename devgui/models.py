@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from usergui.models import *
+from usergui.models import Client, Complaint
 
 # Create your models here.
 class Employee (models.Model):
@@ -16,8 +16,8 @@ class Developer(Employee):
 
 class Software(models.Model):
     name = models.CharField(max_length=100)
-    scrum_master = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    qa = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    scrum_master = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='sm')
+    qa = models.ForeignKey(Developer, on_delete=models.CASCADE, related_name='qa')
 
     def __str__(self):
         return self.name
